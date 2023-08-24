@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@3.0.2"></script>
+    <style>
+        li{
+            list-style: none;
+        }
+        .fav{
+            background-color: aqua;
+        }
+    </style>
+</head>
+<body>
+    <h1>Vue Basic</h1>
+    
+    <div id="app">
+        <h1>All Books</h1>
+        <div v-if="showBook">
+            <ul v-for="book in books">
+                <li :class="{fav:book.isFavorite}" @click="book.isFavorite=!book.isFavorite">
+                    <p> {{ book.name }} </p>
+                    <p> {{ book.author }} </p>
+                    <p> {{ book.age }} </p>
+                <hr>
+                </li>
+            </ul>
+        </div>
+        <h1>Favorite Books</h1>
+        <div v-if="showBook">
+            <ul v-for="book in favBooks">
+                <li :class="{fav:book.isFavorite}" @click="book.isFavorite=!book.isFavorite">
+                    <p> {{ book.name }} </p>
+                    <p> {{ book.author }} </p>
+                    <p> {{ book.age }} </p>
+                <hr>
+                </li>
+            </ul>
+        </div>
+        <h1>Normal Books</h1>
+        <div v-if="showBook">
+            <ul v-for="book in normalBooks">
+                <li :class="{fav:book.isFavorite}" @click="book.isFavorite=!book.isFavorite">
+                    <p> {{ book.name }} </p>
+                    <p> {{ book.author }} </p>
+                    <p> {{ book.age }} </p>
+                <hr>
+                </li>
+            </ul>
+        </div>
+        <button @click="showBook=!showBook">
+            <span v-if="showBook">Hide</span>
+            <span v-if="!showBook">Show</span>
+        </button>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
